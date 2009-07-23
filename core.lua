@@ -32,12 +32,6 @@ addon.debug = function(...)
 end
 
 --[[*****************************************
-	Reloads the interface
-*******************************************]]
-SlashCmdList['RELOADUI'] = function(...) ReloadUI() end
-SLASH_RELOADUI1 = '/rl'
-
---[[*****************************************
 	Prints the name of the hovered frame and tries to Spew the entered command (use "frame" for the hovered frame)
 *******************************************]]
 SlashCmdList['FRAME'] = function(msg)
@@ -54,12 +48,6 @@ SlashCmdList['FRAME'] = function(msg)
 	end
 end
 SLASH_FRAME1 = '/frame'
-
---[[*****************************************
-	Collects garbage
-*******************************************]]
-SlashCmdList['GARBAGE'] = function() collectgarbage("collect") end
-SLASH_GARBAGE1 = '/gcl'
 
 _G['debug'] = addon.debug
 _G['cargDebug'] = addon
