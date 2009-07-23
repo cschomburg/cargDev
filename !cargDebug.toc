@@ -1,0 +1,7 @@
+## Interface: 30000
+## Author: Cargor
+## Title: !cargDebug
+## Notes: Provides few debugging utilities
+## Version: 1.0
+
+core.lua
