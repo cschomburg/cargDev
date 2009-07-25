@@ -1,9 +1,10 @@
 local funcString = [[
 	local start = GetTime()
+	local count = collectgarbage("count")
 	for i=1, $iterations do
 		$msg
 	end
-	cargDebug:Print("%.3fs for %d iterations", GetTime()-start, $iterations)
+	cargDebug:Print("%.3fs for %d iterations (used %.2fkb memory)", GetTime()-start, $iterations, collectgarbage("count")-count)
 ]]
 
 local function time(msg)
