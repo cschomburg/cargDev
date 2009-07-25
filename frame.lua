@@ -11,7 +11,7 @@ local function frame(msg)
 			SlashCmdList.SPEW(msg)
 		end
 	else
-		cargDebug.debug(frame:GetName())
+		cargDev:Print(frame:GetName())
 	end
 end
-cargDebug:RegisterModule("Frame", frame, {"/frame"})
+cargDev:RegisterModule("Frame", frame, {"/frame"})

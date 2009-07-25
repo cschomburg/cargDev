@@ -4,7 +4,7 @@ local funcString = [[
 	for i=1, $iterations do
 		$msg
 	end
-	cargDebug:Print("%.3fs for %d iterations (used %.2fkb memory)", GetTime()-start, $iterations, collectgarbage("count")-count)
+	cargDev:Print("%.3fs for %d iterations (used %.2fkb memory)", GetTime()-start, $iterations, collectgarbage("count")-count)
 ]]
 
 local function time(msg)
@@ -13,4 +13,4 @@ local function time(msg)
 	local str = funcString:gsub("$iterations", iterations):gsub("$msg", msg)
 	assert(loadstring(str))()
 end
-cargDebug:RegisterModule("time", time, {"/time"})
+cargDev:RegisterModule("profile", time, {"/profile", "/pr"})

@@ -25,4 +25,4 @@ local function whereIs(frame)
 	end
 	ToggleFrame(borders[frame])
 end
-cargDebug:RegisterModule("whereIs", whereIs, {"/whereis"})
+cargDev:RegisterModule("whereIs", whereIs, {"/whereis"})

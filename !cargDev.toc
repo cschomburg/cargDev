@@ -1,6 +1,6 @@
 ## Interface: 30200
 ## Author: Cargor
-## Title: !cargDebug
+## Title: cargDev
 ## Notes: Provides a few debugging utilities
 ## Version: 2.0
 

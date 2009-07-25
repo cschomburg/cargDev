@@ -21,5 +21,5 @@ local debug = function(...)
 end
 _G['debug'] = debug
 
-cargDebug:RegisterModule("debug", debug, {"/debug"})
-cargDebug:RegisterModule("debugclear", function() debugFrame:Clear() end, {"/debugclear", "/dcl"})
+cargDev:RegisterModule("debug", debug, {"/debug"})
+cargDev:RegisterModule("debugclear", function() debugFrame:Clear() end, {"/debugclear", "/dcl"})
