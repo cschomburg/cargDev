@@ -5,4 +5,7 @@
 ## Version: 1.0
 
 core.lua
+debug.lua
+frame.lua
 whereis.lua
+time.lua

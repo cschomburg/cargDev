@@ -1,6 +1,13 @@
 local borders = {}
 
-function WhereIs(frame)
+local function whereIs(frame)
+	if(type(frame) == "string") then
+		if(frame == "clear") then
+			for _, v in pairs(borders) do v:Hide() end
+			return
+		end
+		frame = assert(loadstring("return "..frame))()
+	end
 	if(not frame) then return end
 	if(not borders[frame]) then
 		local border = CreateFrame("Frame", nil, UIParent)
@@ -18,13 +25,4 @@ function WhereIs(frame)
 	end
 	ToggleFrame(borders[frame])
 end
-
-SlashCmdList['WHEREIS'] = function(frame)
-	if(frame == "clear") then
-		for _, v in pairs(borders) do v:Hide() end
-		return
-	end
-	frame = assert(loadstring("return "..frame))()
-	WhereIs(frame)
-end
-SLASH_WHEREIS1 = '/whereis'
+cargDebug:RegisterModule("whereIs", whereIs, {"/whereis"})
