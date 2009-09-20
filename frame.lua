@@ -1,17 +1,17 @@
 --[[*****************************************
 	Prints the name of the hovered frame and tries to Spew the entered command (use "frame" for the hovered frame)
 *******************************************]]
-local function frame(msg)
+local function getFrame(msg)
 	frame = GetMouseFocus()
-	if(SlashCmdList.SPEW and msg and strlen(msg)>0) then
+	if(Spew and msg) then
 		local firstLetter = msg:sub(1, 1)
 		if(firstLetter == ":" or firstLetter == ".") then
-			SlashCmdList.SPEW("frame"..msg)
+			Spew("frame"..msg)
 		else
-			SlashCmdList.SPEW(msg)
+			Spew(msg)
 		end
 	else
-		cargDev:Print(frame:GetName())
+		cargDev:Print(frame:GetName() or tostring(frame))
 	end
 end
-cargDev:RegisterModule("Frame", frame, {"/frame"})
+cargDev:RegisterModule("Frame", getFrame, {"/frame"})

@@ -13,4 +13,14 @@ local function time(msg)
 	local str = funcString:gsub("$iterations", iterations):gsub("$msg", msg)
 	assert(loadstring(str))()
 end
+
+profiled = {}
+function profile(name, point)
+	local now = GetTime()
+	local start = profiled[name] or now
+	profiled[name] = now
+	if(point ~= "start") then cargDev:Print("%.3fs for '%s' of '%s'", now-start, name, point) end
+	if(point == "reset") then profiled[name] = nil end
+end
+
 cargDev:RegisterModule("profile", time, {"/profile", "/pr"})

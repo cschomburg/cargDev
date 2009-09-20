@@ -11,15 +11,22 @@ debugFrame:SetPoint("TOPLEFT", UIParent, 10, -10)
 debugFrame:SetFontObject(ChatFontNormal)
 debugFrame:Show()
 
-local debug = function(...)
+color = {
+	["function"] = "9090ff",
+	["number"] = "00ff00",
+	["nil"] = "ff5050",
+	["table"] = "ee8800",
+}
+
+function debug(...)
 	local strText
 	for i=1, select("#", ...) do
+		local value = select(i, ...)
 		if(strText) then strText = strText..", " else strText = "" end
-		strText = strText..(select(i, ...) or "|cffff9090nil|r")
+		strText = ("%s|cff%s%s|r"):format(strText, color[type(value)] or "ffffff", tostring(value))
 	end
 	debugFrame:AddMessage(strText)
 end
-_G['debug'] = debug
 
 cargDev:RegisterModule("debug", debug, {"/debug"})
 cargDev:RegisterModule("debugclear", function() debugFrame:Clear() end, {"/debugclear", "/dcl"})
